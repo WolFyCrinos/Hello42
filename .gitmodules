@@ -8,3 +8,7 @@
 [submodule "external/nvrhi"]
 	path = external/nvrhi
 	url = https://github.com/NVIDIAGameWorks/nvrhi.git
+[submodule "external/vulkan-header"]
+	path = external/vulkan-header
+	url = https://github.com/KhronosGroup/Vulkan-Hpp.git
+	branch = add-missing-glslang-headers
