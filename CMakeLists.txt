@@ -45,3 +45,19 @@ target_include_directories(ImGui PRIVATE ${Vulkan_INCLUDE_DIRS})
 target_link_libraries(ImGui PRIVATE ${Vulkan_LIBRARIES})
 target_link_libraries(ImGui PRIVATE glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE ImGui)
+
+# NVRHI #
+set(NVRHI_BUILD_SHARED ON CACHE BOOL "" FORCE)
+set(NVRHI_INSTALL ON CACHE BOOL "" FORCE)
+set(NVRHI_INSTALL_EXPORTS OFF CACHE BOOL "" FORCE)
+set(NVRHI_WITH_VALIDATION ON CACHE BOOL "" FORCE)
+set(NVRHI_WITH_VULKAN ON CACHE BOOL "" FORCE)
+set(NVRHI_WITH_RTXMU ON CACHE BOOL "" FORCE)
+set(NVRHI_WITH_NVAPI OFF CACHE BOOL "" FORCE)
+set(NVRHI_WITH_DX11 OFF CACHE BOOL "" FORCE)
+set(NVRHI_WITH_DX12 OFF CACHE BOOL "" FORCE)
+
+add_subdirectory(./external/nvrhi)
+target_link_libraries(${PROJECT_NAME} ${nvrhi_vulkan_target})
+target_link_libraries(${PROJECT_NAME} PRIVATE nvrhi)
+
